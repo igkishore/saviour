@@ -1,0 +1,31 @@
+{
+  "name": "saviour",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igkishore/saviour.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igkishore/saviour/issues"
+  },
+  "homepage": "https://github.com/igkishore/saviour#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-flash": "^0.1.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "flash": "^1.1.0",
+    "mongoose": "^6.3.4",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "session": "^0.1.0"
+  }
+}
