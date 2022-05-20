@@ -78,31 +78,33 @@
   </head>
   <body>
     <div class="Box">
+      <form action="/register" method="POST">
       <h4>Register to Saviour</h4>
       <div class="inputs">
         <div class="first-half">
-          <input type="text" placeholder="Full Name" /><br />
-          <input type="text" placeholder="Mail ID" /><br />
-          <input type="number" placeholder="Age" /><br />
-          <input type="number" placeholder="Contact Number" /><br />
+          <input type="text" placeholder="Full Name" name="name" /><br />
+          <input type="text" placeholder="Mail ID" name="mailid"/><br />
+          <input type="number" placeholder="Age" name="age"/><br />
+          <input type="number" placeholder="Contact Number" name="contact" /><br />
         </div>
         <div class="second-half">
           <div class="gender">
             <h5>Gender</h5>
-            <input type="radio" name="fav_language" value="Male" />
+            <input type="radio" name="gender" value="Male" />
               <label for="html">Male</label>  
-            <input type="radio" name="fav_language" value="Female" />  
+            <input type="radio" name="gender" value="Female" />  
             <label for="css">Female</label><br />
           </div>
-          <input type="number" placeholder="Pincode" /><br />
-          <input type="password" placeholder="Password" /><br />
-          <input type="password" placeholder="Confirm Password" /><br />
+          <input type="number" placeholder="Pincode" name="location" /><br />
+          <input type="password" placeholder="Password" name="password" /><br />
+          <input type="password" placeholder="Confirm Password" name="password2" /><br />
         </div>
       </div>
       <br />
       <button class="regBtn" type="submit">Register</button><br /><br />
       <a href="/login"><u>Already Have An Account</u></a
       ><br />
+    </form>
     </div>
   </body>
 </html>

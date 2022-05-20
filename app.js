@@ -102,7 +102,7 @@ app.get("/logout", (req, res) => {
 });
 
 // dashboard Route
-app.get("/", ensureAuthenticated, (req, res) => {
+app.get("/", (req, res) => {
   const stats = (req, res) => {
     stats_db
       .find()
