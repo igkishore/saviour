@@ -103,17 +103,18 @@ app.get("/logout", (req, res) => {
 
 // dashboard Route
 app.get("/", (req, res) => {
-  const stats = (req, res) => {
-    stats_db
-      .find()
-      .sort({ createdAt: -1 })
-      .then((result) => {
-        res.render("dashboard", { stats: result });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const stats = (req, res) => {
+  //   stats_db
+  //     .find()
+  //     .sort({ createdAt: -1 })
+  //     .then((result) => {
+  //       res.render("dashboard", { stats: result });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  res.render("dashboard");
 });
 
 //404 Route
