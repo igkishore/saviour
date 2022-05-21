@@ -121,6 +121,12 @@ app.get("/help_me", (req, res) => {
   res.render("help_me");
 });
 
+app.get("/lift", (req, res) => {
+  const towards_data = ['Towards Romania', 'Towards Hungary', 'Towards Poland'];
+  const time = ['13:30:00','17:30:00','14:30:00'];
+  res.render("lift",{towards_data:towards_data, time:time});
+});
+
 //404 Route
 app.use((req, res) => {
   res.status(404).render("404");
