@@ -4,9 +4,173 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      .nav-text, .nav-text:hover{
+        color:white;
+      }
+      .outline-light{
+        background: transparent;
+        color:white;
+        border: none;
+      }
+      .outline-light:hover{
+        background:white;
+        color:black;
+        transition: 0.1s;
+      }
+      .card-body-news{
+        display: flex;
+        justify-content: space-between;
+        align-items: center!important;
+      }
+      .color-black{
+        color:black;
+      }
+    </style>
 </head>
 <body>
-    welcome here
+    <div class="navBar">
+        <nav class="navbar navbar-expand-lg" style="background:#0a58ca;">
+            <div class="container">
+              <a class="navbar-brand nav-text" href="#">Saviour</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link nav-text" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-text" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link nav-text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-text">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-warning" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </div><br><br>
+
+    <div class="stats container">
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <h2>Statistics</h2><br><br>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-4">
+
+            <div class="card outline-light" style="width: 18rem;">
+              <div class="card-body card-body-news">
+                <h5 class="card-title lead"><b>Total Deaths</b></h5>
+                <h6 class="card-subtitle mb-2 text-muted lead"><b>1,20,225</b></h6>
+              </div>
+            </div><br>
+
+            <div class="card outline-light" style="width: 18rem;">
+              <div class="card-body card-body-news">
+                <h5 class="card-title lead"><b>Total Recovered</b></h5>
+                <h6 class="card-subtitle mb-2 text-muted lead"><b>50,256</b></h6>
+              </div>
+            </div><br>
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title lead text-muted "><u><b>Areas Covered</b></u></h5><br>
+                <div class="row">
+                  <div class="col color-black">ABC</div>
+                  <div class="col color-black">DEF</div>
+                  <div class="col color-black">GHI</div>
+                  <div class="col color-black">JKL</div>
+                  <div class="col color-black">MNO</div>
+                </div>
+                <!-- <p class="card-text color-black">ABC</p> -->
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-8 col-sm-8 col-8">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <canvas id="deaths"></canvas>
+                </div>
+                <div class="carousel-item">
+                  <canvas id="survival"></canvas>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br><br>
+
+    <div class="news container">
+      <div class="h-100 p-5 border rounded-3" style="background:#0a58ca;">
+        <h2 class="nav-text">News</h2><br>
+        <div class="row">
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">News title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">News</p>
+                <a href="#" class="btn btn-warning">Go to Page</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">News title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">News</p>
+                <a href="#" class="btn btn-warning">Go to Page</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">News title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">News</p>
+                <a href="#" class="btn btn-warning">Go to Page</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br><br>
+    
+
+    <script src="graph.js"></script>
 </body>
 </html>
