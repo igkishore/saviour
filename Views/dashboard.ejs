@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
+    <%- include('./partials/head') %>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,7 +104,7 @@
                   <div class="col color-black">JKL</div>
                   <div class="col color-black">MNO</div>
                 </div>
-                <!-- <p class="card-text color-black">ABC</p> -->
+                 <p class="card-text color-black">ABC</p> 
               </div>
             </div>
             
@@ -173,4 +174,160 @@
 
     <script src="graph.js"></script>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+  </head>
+
+  <body>
+    <%- include('./partials/nav') %> 
+    <div class="jumbotron jumbotron-fluid " style="background-color: rgba(255, 255, 255, 0.199); margin-top: 40px;">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
+          <img src="/welcome.svg" alt="Picture"
+            style="  display: block; margin-left: auto; margin-right: auto; width: 20%; ">
+        </div>
+        </div>
+      </div>
+      </div><br><br>
+
+      <div class="jumbotron jumbotron-fluid " style="background-color: rgba(255, 255, 255); margin-top: 40px;">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-12 ">
+            <p><h1 style="text-align: center;">1286<span style="font-family:small;"><p>+ collected till now</p></span></h1></p> 
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 " style="background-color:#B3E8E5 ;" >
+
+          </div>
+          </div>
+        </div>
+        </div><br><br>
+
+
+
+      <div class="stats container">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Statistics</h2><br><br>
+          <div class="row">
+            <div class="col-md-4 col-sm-4 col-4">
+  
+              <div class="card outline-light" style="width: 18rem;">
+                <div class="card-body card-body-news">
+                  <h5 class="card-title lead"><b>Total Deaths</b></h5>
+                  <h6 class="card-subtitle mb-2 text-muted lead"><b>1,20,225</b></h6>
+                </div>
+              </div><br>
+  
+              <div class="card outline-light" style="width: 18rem;">
+                <div class="card-body card-body-news">
+                  <h5 class="card-title lead"><b>Total Recovered</b></h5>
+                  <h6 class="card-subtitle mb-2 text-muted lead"><b>50,256</b></h6>
+                </div>
+              </div><br>
+  
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title lead text-muted "><u><b>Areas Covered</b></u></h5><br>
+                  <div class="row">
+                    <div class="col color-black">ABC</div>
+                    <div class="col color-black">DEF</div>
+                    <div class="col color-black">GHI</div>
+                    <div class="col color-black">JKL</div>
+                    <div class="col color-black">MNO</div>
+                  </div>
+                   <p class="card-text color-black">ABC</p> 
+                </div>
+              </div>
+              
+            </div>
+            <div class="col-md-8 col-sm-8 col-8">
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <canvas id="deaths"></canvas>
+                  </div>
+                  <div class="carousel-item">
+                    <canvas id="survival"></canvas>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><br><br>
+
+      <div class="news container">
+        <div class="h-100 p-5 border rounded-3" style="background:#82DBD8;">
+          <h2 class="nav-text">News</h2><br>
+          <div class="row">
+            <div class="col">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body" >
+                  <img src="https://bsmedia.business-standard.com/_media/bs/img/article/2022-03/02/full/1646182116-8889.jpg?im=Resize,width=480" alt="" style="width:100%;">
+                  <h5 class="card-title">US President Joe Biden signs Ukraine funding bill</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Russia Ukraine war live updates</h6>
+                  <p class="card-text">war</p>
+                  <a href="https://timesofindia.indiatimes.com/world/europe/russia-ukraine-war-may-21/liveblog/91699300.cms" class="btn btn-warning">Go to Page</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <img src="data:image/jpeg;base64,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" alt="" style="width:100%;">
+                  <h5 class="card-title">Russia will feel weight of every bomb'</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Ukraine war</h6>
+                  <p class="card-text">News</p>
+                  <a href="https://www.hindustantimes.com/world-news/russia-will-feel-weight-of-every-bomb-zelensky-seeks-compensation-10-points-101653093031846.html" class="btn btn-warning">Go to Page</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <img src="https://www.aljazeera.com/wp-content/uploads/2017/05/3be078a0e965409b8175b1319441afeb_18.jpeg?resize=770%2C513" alt="" style="width:100%;">
+                  <h5 class="card-title">UK calls for arms to be sent to Moldova</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Russia-Ukraine live news</h6>
+                  <p class="card-text">Moldova</p>
+                  <a href="https://www.aljazeera.com/news/2022/5/20/russia-says-last-ukrainian-fighters-in-mariupol-surrendered-liveblog" class="btn btn-warning">Go to Page</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <br>
+          <a href="https://www.aljazeera.com/news/2022/5/20/russia-says-last-ukrainian-fighters-in-mariupol-surrendered-liveblog" class="btn btn-warning">More Updates</a>
+        </div>
+      </div><br><br>
+    
+    
+    <%- include('./partials/footer')%>
+    <script src="graph.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
