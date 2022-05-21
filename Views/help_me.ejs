@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+    type="text/css"
+  />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+  <title>Help Me</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #map {
+      height: 100vh;
+      width: 100vw;
+    }
+  </style>
+</head>
+<body>
+  <div id='map'></div>
+  <script>
+    mapboxgl.accessToken =
+  "pk.eyJ1IjoieXZrcmlzaG5hIiwiYSI6ImNraXN3cGx1eDBpdXcydm1teTQ4c2cyazIifQ.2sxTkbyTPvDpqAEu882xGQ"
+
+      navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+        enableHighAccuracy: true
+      })
+
+      function successLocation(position) {
+        setupMap([position.coords.longitude, position.coords.latitude])
+      }
+
+      function errorLocation() {
+        setupMap([-2.24, 53.48])
+      }
+
+      function setupMap(center) {
+        const map = new mapboxgl.Map({
+          container: "map",
+          style: "mapbox://styles/mapbox/streets-v11",
+          center: center,
+          zoom: 15
+        })
+
+        const nav = new mapboxgl.NavigationControl()
+        map.addControl(nav)
+
+        map.on('load', () => {
+// Add an image to use as a custom marker
+          map.loadImage(
+              'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+              (error, image) => {
+              if (error) throw error;
+              map.addImage('custom-marker', image);
+              // Add a GeoJSON source with 3 points
+              map.addSource('points', {
+              'type': 'geojson',
+              'data': {
+              'type': 'FeatureCollection',
+              'features': [
+              {
+              // feature for Mapbox DC
+              'type': 'Feature',
+              'geometry': {
+              'type': 'Point',
+              'coordinates': [
+              center[0]+0.002, center[1]+0.002
+              ]
+              },
+              'properties': {
+              'title': 'Gowtham',
+              }
+              },
+              {
+              // feature for Mapbox SF
+              'type': 'Feature',
+              'geometry': {
+              'type': 'Point',
+              'coordinates': [center[0]+0.005, center[1]+0.003]
+              },
+              'properties': {
+              'title': 'Ram',
+              }
+              }
+              ]
+              }
+              });
+              
+              // Add a symbol layer
+              map.addLayer({
+              'id': 'points',
+              'type': 'symbol',
+              'source': 'points',
+              'layout': {
+              'icon-image': 'custom-marker',
+              // get the title name from the source's "title" property
+              'text-field': ['get', 'title'],
+              'text-font': [
+              'Open Sans Semibold',
+              'Arial Unicode MS Bold'
+              ],
+              'text-offset': [0, 1.25],
+              'text-anchor': 'top',
+              'icon-size': 0.1
+              }
+              });
+              }
+          );
+
+          map.loadImage(
+              'https://cdn-icons-png.flaticon.com/512/149/149060.png',
+              (error, image) => {
+              if (error) throw error;
+              map.addImage('location', image);
+              // Add a GeoJSON source with 3 points
+              map.addSource('my_point', {
+              'type': 'geojson',
+              'data': {
+              'type': 'FeatureCollection',
+              'features': [
+              {
+              // feature for Mapbox DC
+              'type': 'Feature',
+              'geometry': {
+              'type': 'Point',
+              'coordinates': [
+              center[0], center[1]
+              ]
+              },
+              'properties': {
+              'title': 'Krishna',
+              }
+              },
+              ]
+              }
+              });
+              
+              // Add a symbol layer
+              map.addLayer({
+              'id': 'my_point',
+              'type': 'symbol',
+              'source': 'my_point',
+              'layout': {
+              'icon-image': 'location',
+              // get the title name from the source's "title" property
+              'text-field': ['get', 'title'],
+              'text-font': [
+              'Open Sans Semibold',
+              'Arial Unicode MS Bold'
+              ],
+              'text-offset': [0, 1.25],
+              'text-anchor': 'top',
+              'icon-size': 0.1
+              }
+              });
+              }
+          );
+
+          });
+      }
+
+     
+  </script>
+</body>
+</html>

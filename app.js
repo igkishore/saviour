@@ -19,7 +19,7 @@ const db =
   "mongodb+srv://gowtham:test1234@main.l0g6f.mongodb.net/Saviour?retryWrites=true&w=majority";
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) => app.listen(port))
+  .then((result) => app.listen(port, function(){ console.log("listning to port", port)}))
   .catch((err) => console.log(err));
 
 //view engine
@@ -103,17 +103,22 @@ app.get("/logout", (req, res) => {
 
 // dashboard Route
 app.get("/", (req, res) => {
-  const stats = (req, res) => {
-    stats_db
-      .find()
-      .sort({ createdAt: -1 })
-      .then((result) => {
-        res.render("dashboard", { stats: result });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const stats = (req, res) => {
+  //   stats_db
+  //     .find()
+  //     .sort({ createdAt: -1 })
+  //     .then((result) => {
+  //       res.render("dashboard", { stats: result });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  res.render("dashboard");
+});
+
+app.get("/help_me", (req, res) => {
+  res.render("help_me");
 });
 
 //404 Route
