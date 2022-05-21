@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -79,32 +79,200 @@
   <body>
     <div class="Box">
       <form action="/register" method="POST">
-      <h4>Register to Saviour</h4>
-      <div class="inputs">
-        <div class="first-half">
-          <input type="text" placeholder="Full Name" name="name" /><br />
-          <input type="text" placeholder="Mail ID" name="mailid"/><br />
-          <input type="number" placeholder="Age" name="age"/><br />
-          <input type="number" placeholder="Contact Number" name="contact" /><br />
-        </div>
-        <div class="second-half">
-          <div class="gender">
-            <h5>Gender</h5>
-            <input type="radio" name="gender" value="Male" />
-              <label for="html">Male</label>  
-            <input type="radio" name="gender" value="Female" />  
-            <label for="css">Female</label><br />
+        <h4>Register to Saviour</h4>
+        <div class="inputs">
+          <div class="first-half">
+            <input type="text" placeholder="Full Name" name="name" /><br />
+            <input type="text" placeholder="Mail ID" name="mailid" /><br />
+            <input type="number" placeholder="Age" name="age" /><br />
+            <input
+              type="number"
+              placeholder="Contact Number"
+              name="contact"
+            /><br />
           </div>
-          <input type="number" placeholder="Pincode" name="location" /><br />
-          <input type="password" placeholder="Password" name="password" /><br />
-          <input type="password" placeholder="Confirm Password" name="password2" /><br />
+          <div class="second-half">
+            <div class="gender">
+              <h5>Gender</h5>
+              <input type="radio" name="gender" value="Male" />
+                <label for="html">Male</label>  
+              <input type="radio" name="gender" value="Female" />  
+              <label for="css">Female</label><br />
+            </div>
+            <input type="number" placeholder="Pincode" name="location" /><br />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+            /><br />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="password2"
+            /><br />
+          </div>
+        </div>
+        <br />
+        <button class="regBtn" type="submit">Register</button><br /><br />
+        <a href="/login"><u>Already Have An Account</u></a
+        ><br />
+      </form>
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head') %>
+  <body>
+    <h1 style="font-weight: 800; font-size: 70px; text-align: center">
+      <span style="color: #2f8f9d">Saviour</span>
+    </h1>
+    <div class="jumbotron jumbotron-fluid" style="background: white">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <img
+            src="/register.svg"
+            alt="Picture "
+            style="
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 57%;
+            "
+          />
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="jumbotron jumbotron" style="background: white">
+            <h2
+              style="
+                font-weight: 800;
+                text-align: center;
+                text-transform: uppercase;
+              "
+            >
+              Register
+            </h2>
+
+            <form action="/register" method="POST">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  minlength="10"
+                  id="exampleFormControlInput1"
+                  placeholder="Enter Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="mailid"
+                  id="exampleFormControlInput1"
+                  placeholder="Enter Your Mail ID"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Age</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="age"
+                  id="exampleFormControlInput1"
+                  placeholder="Enter Your Age"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Contact </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="contact"
+                  id="exampleFormControlInput1"
+                  placeholder="Enter Your Contact Number"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Gender</label>
+                <select name="gender" id="inputState" class="form-control">
+                  <option>Male</option>
+                  <option selected>Female</option>
+                  <option>Others</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Location</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="location"
+                  id="exampleFormControlInput1"
+                  placeholder="Enter Your Location Pin"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  id="exampleFormControlInput1"
+                  placeholder="Enter Your password"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1"> Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password2"
+                  id="exampleFormControlInput1"
+                  placeholder="Re-Enter Your password"
+                  required
+                />
+              </div>
+              <div class="form-group" style="text-align: center">
+                <button
+                  type="submit"
+                  class="btn btn-outline-dark"
+                  style="transition: 0.4s; margin: 20px"
+                >
+                  Submit
+                </button>
+              </div>
+              <p>Have an Account <a href="login">login</a> Here</p>
+            </form>
+          </div>
         </div>
       </div>
-      <br />
-      <button class="regBtn" type="submit">Register</button><br /><br />
-      <a href="/login"><u>Already Have An Account</u></a
-      ><br />
-    </form>
     </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -16,7 +16,7 @@ var port = 5000;
 const user_db = require("./model/model.user");
 const stats_db = require("./model/model.stats");
 const db =
-  "mongodb+srv://gowtham:test1234@main.l0g6f.mongodb.net/saviour?retryWrites=true&w=majority";
+  "mongodb+srv://gowtham:test1234@main.l0g6f.mongodb.net/Saviour?retryWrites=true&w=majority";
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(port))
