@@ -125,6 +125,16 @@ app.get("/donate", (req, res) => {
   res.render("donate");
 });
 
+app.get("/dep", (req, res) => {
+  res.render("dep");
+});
+
+
+app.get("/consult", (req, res) => {
+  res.render("consult");
+});
+
+
 app.get("/lift", (req, res) => {
   const towards_data = ['Towards Romania', 'Towards Hungary', 'Towards Poland'];
   const time = ['13:30:00','17:30:00','14:30:00'];
